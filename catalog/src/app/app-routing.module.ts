@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'repos',
     loadChildren: () => import('./repos/repos.module').then(m => m.ReposModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   }];
 
 @NgModule({
