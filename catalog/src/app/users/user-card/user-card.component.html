@@ -1,10 +1,8 @@
 <mat-card class="user-card">
+  <mat-spinner *ngIf="!imageUrl"></mat-spinner>
     <mat-card-header class="user-card__header card-header">
       <div mat-card-avatar class="card-header__image"></div>
       <mat-card-title routerLink="/users/{{user.id}}" class="card-header__title">{{user.name}}</mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-    <!-- <mat-card-content class="user-card__content card-content">
-      <p>Hobby: {{user.hobby}}</p>
-    </mat-card-content> -->
+    <img mat-card-image src="{{imageUrl}}" class="user-card__image" alt="User pic">
 </mat-card>

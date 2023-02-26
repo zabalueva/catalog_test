@@ -1,6 +1,8 @@
-<div class="cards-container">
-    <ng-container *ngFor="let user of usersService.allUsers">
-        <app-user-card [user]="user"></app-user-card>
-    </ng-container>
+<div class="cards">
+    <div class="cards__cards-container">
+        <ng-container *ngFor="let user of usersService.allUsers">
+            <app-user-card [user]="user"></app-user-card>
+        </ng-container>
+    </div>
+    <button mat-raised-button color="primary" routerLink="/users/create" class="cards__button">Создать персонажа</button>
 </div>
-<button mat-raised-button color="primary" routerLink="/users/create">Добавить персонажа</button>

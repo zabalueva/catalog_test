@@ -1,19 +1,25 @@
-<h1 class="user-create">Создание нового персонажа</h1>
-<form [formGroup]="userFormGroup" class="user-create-form">
-    <mat-form-field appearance="outline">
-        <mat-label>Имя</mat-label>
-        <input matInput placeholder="Введите имя" formControlName="name">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
-        <mat-label>Фамилия</mat-label>
-        <input matInput placeholder="Введите фамилию" formControlName="lastName">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>  
-      <mat-form-field appearance="outline">
-        <mat-label>Хобби</mat-label>
-        <input matInput placeholder="Введите фамилию" formControlName="hobby">
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      </mat-form-field>  
-</form>
+<div class="user-create">
+    <h1>Создание нового персонажа</h1>
+    <form [formGroup]="userFormGroup" class="user-create__form" action="">
+        <mat-form-field appearance="outline">
+            <mat-label>Имя</mat-label>
+            <input matInput placeholder="Введите имя" formControlName="name">
+            <mat-error *ngIf="userFormGroup.controls.name.hasError('required')">Поле обязательно для заполнения</mat-error>
+            <mat-error *ngIf="userFormGroup.controls.name.hasError('maxlength')">Максимум {{userFormGroup.controls.name.errors?.maxlength.requiredLength}} символов</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Фамилия</mat-label>
+            <input matInput placeholder="Введите фамилию" formControlName="lastName">
+            <mat-error *ngIf="userFormGroup.controls.lastName.hasError('required')">Поле обязательно для заполнения</mat-error>
+            <mat-error *ngIf="userFormGroup.controls.lastName.hasError('maxlength')">Максимум {{userFormGroup.controls.lastName.errors?.maxlength.requiredLength}} символов</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Хобби</mat-label>
+            <input matInput placeholder="Чем любит заниматься этот персонаж" formControlName="hobby">
+            <mat-error *ngIf="userFormGroup.controls.hobby.hasError('required')">Поле обязательно для заполнения</mat-error>
+            <mat-error *ngIf="userFormGroup.controls.hobby.hasError('maxlength')">Максимум {{userFormGroup.controls.hobby.errors?.maxlength.requiredLength}} символов</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addUser()">Добавить персонажа</button>
+    </form>
+</div>
  

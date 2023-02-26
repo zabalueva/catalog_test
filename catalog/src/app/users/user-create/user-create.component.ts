@@ -1,26 +1,30 @@
 import { Component } from '@angular/core';
 
-
-
 import { FormGroup, FormControl } from '@angular/forms';
+
+import { Validators } from '@angular/forms';
+
+import { UsersService } from '../users.service';
+
+import { mergeMap } from 'rxjs/operators';
+
+import * as uuid from 'uuid';
+
+import { Router } from '@angular/router';
 
 
 
 interface UserFormGroup {
 
-    name: string;
+    name: FormControl<string | null>;
 
 
 
-    lastName: string;
+    lastName: FormControl<string | null>;
 
 
 
-    hobby: string;
-
-
-
-    id: string;
+    hobby: FormControl<string | null>;
 
 }
 
@@ -42,11 +46,11 @@ interface UserFormGroup {
 
 export class UserCreateComponent {
 
-    public userFormGroup: FormGroup;
+    public userFormGroup: FormGroup<UserFormGroup>;
 
 
 
-    constructor() {}
+    constructor(public usersService: UsersService, private readonly router: Router) {}
 
 
 
@@ -62,17 +66,65 @@ export class UserCreateComponent {
 
         this.userFormGroup = new FormGroup({
 
-            name: new FormControl(''),
+            name: new FormControl('', [Validators.required, Validators.maxLength(10)]),
 
 
 
-            lastName: new FormControl(''),
+            lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
 
 
 
-            hobby: new FormControl(''),
+            hobby: new FormControl('', [Validators.required, Validators.maxLength(40)]),
 
         });
+
+    }
+
+
+
+    public addUser(): void {
+
+        if (!this.userFormGroup.valid) {
+
+            return;
+
+        }
+
+
+
+        const myId = uuid.v4();
+
+
+
+        const payload = Object.assign(this.userFormGroup.value, { id: myId });
+
+
+
+        this.usersService
+
+
+
+            .postUser(payload)
+
+
+
+            .pipe(
+
+                mergeMap(() => {
+
+                    return this.usersService.getUsers();
+
+                })
+
+            )
+
+
+
+            .subscribe(() => {
+
+                this.router.navigate(['/users']);
+
+            });
 
     }
 
