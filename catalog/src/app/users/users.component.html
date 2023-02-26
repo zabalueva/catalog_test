@@ -1,7 +1,6 @@
-<h1>Список пользователей с буквой А</h1>
 <div class="cards-container">
     <ng-container *ngFor="let user of usersService.allUsers">
-        <app-user-card></app-user-card>
+        <app-user-card [user]="user"></app-user-card>
     </ng-container>
 </div>
-<button>Добавить фиктивного пользователя</button>
+<button mat-raised-button color="primary" routerLink="/users/create">Добавить персонажа</button>

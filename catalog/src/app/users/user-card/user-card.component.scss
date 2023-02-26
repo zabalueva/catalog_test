@@ -1,8 +1,18 @@
-.example-card {
-    max-width: 400px;
+.user-card {
+    max-width: 200px;
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
+.card-header {
+    &__image {
+        background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+        background-size: cover;
+    }
+
+    &__title {
+        cursor: pointer;
+    }
+}
+
+.card-content {
+    padding: 8px;
 }

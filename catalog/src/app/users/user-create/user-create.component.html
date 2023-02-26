@@ -1,0 +1,19 @@
+<h1 class="user-create">Создание нового персонажа</h1>
+<form [formGroup]="userFormGroup" class="user-create-form">
+    <mat-form-field appearance="outline">
+        <mat-label>Имя</mat-label>
+        <input matInput placeholder="Введите имя" formControlName="name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Фамилия</mat-label>
+        <input matInput placeholder="Введите фамилию" formControlName="lastName">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>  
+      <mat-form-field appearance="outline">
+        <mat-label>Хобби</mat-label>
+        <input matInput placeholder="Введите фамилию" formControlName="hobby">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>  
+</form>
+ 
