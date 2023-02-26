@@ -1,7 +1,7 @@
 # Catalog
 
-Для проекта используется json-server, для локального запуска сервер запустится по команде `npm run start` (сервер запустится на localhost:3000)
-Для использования версии деплоя необходимо установить json-server (npm install -g json-server) и использовать базу данных из этого репо.
+Для проекта используется json-server (https://github.com/typicode/json-server#getting-started), для локального запуска сервер запустится по команде `npm run start` (сервер запустится на localhost:3000)
+Для использования версии деплоя [https://superb-cheesecake-d23906.netlify.app/] необходимо установить json-server (npm install -g json-server) и использовать базу данных из этого репо (json-server --watch db.json)
 
 ## Краткое описание
 
