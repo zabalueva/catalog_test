@@ -1,23 +1,36 @@
 import { NgModule } from '@angular/core';
+
+
+
 import { CommonModule } from '@angular/common';
 
+
+
 import { AuthRoutingModule } from './auth-routing.module';
+
+
+
 import { AuthComponent } from './auth.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button'
+
+
+
+import MaterialsModule from '../shared/materials/materials.module';
+
+import { HeaderComponent } from './header/header.component';
+
 
 
 @NgModule({
-  declarations: [
-    AuthComponent
-  ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatButtonModule
-  ]
+
+  declarations: [AuthComponent, HeaderComponent],
+
+
+
+  imports: [CommonModule, AuthRoutingModule, MaterialsModule],
+
+  exports: [HeaderComponent],
+
 })
+
 export class AuthModule { }
+
