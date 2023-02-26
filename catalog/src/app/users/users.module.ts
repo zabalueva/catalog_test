@@ -20,7 +20,17 @@ import { UserCardComponent } from './user-card/user-card.component';
 
 import { UserDetailsComponent } from './user-details/user-details.component';
 
+
+
 import MaterialsModule from '../shared/materials/materials.module';
+
+
+
+import { UsersService } from './users.service';
+
+
+
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 
 
@@ -30,7 +40,11 @@ import MaterialsModule from '../shared/materials/materials.module';
 
 
 
-  imports: [CommonModule, UsersRoutingModule, MaterialsModule],
+  imports: [CommonModule, UsersRoutingModule, MaterialsModule, HttpClientModule],
+
+
+
+  providers: [UsersService],
 
 })
 
